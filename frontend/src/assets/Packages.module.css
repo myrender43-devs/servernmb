@@ -1,0 +1,92 @@
+.container {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.intro {
+  background: #ceb630;
+  padding: 15px 20px;
+  border-radius: 8px;
+  margin-bottom: 30px;
+  color: #333333;
+}
+.intro h1 {
+  font-size: 28px;
+  margin-bottom: 10px;
+  color: white;
+}
+.intro p {
+  font-size: 20px;
+  line-height: 1.5;
+}
+.header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.header h2 {
+  font-size: 22px;
+  font-weight: 600;
+  color: #333;
+}
+
+.icon {
+  font-size: 20px;
+}
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.card {
+  background: #f7f7f8;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 2px 6px rgba(4, 10, 3, 0.09);
+}
+
+.cardTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cardTop h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #222;
+}
+
+.tag {
+  background: #dbeafe;
+  color: #2563eb;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.description {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #666;
+}
+
+.price {
+  margin-top: 15px;
+  font-size: 26px;
+  font-weight: 700;
+  color: #111;
+}
+
+.month {
+  font-size: 14px;
+  color: #666;
+  font-weight: 400;
+}
