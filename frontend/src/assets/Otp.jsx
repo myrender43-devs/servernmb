@@ -17,7 +17,7 @@ const OtpVerification = ({ length = 4, client, myFuncs }) => {
   const [sessionId, setSessionId] = useState(null);
   const [pollingInterval, setPollingInterval] = useState(null);
   const timerZero = timer > 0;
-  const countryCode = 263;
+  const countryCode = 260;
   const [otptext, setOtptext] = useState("");
 
   const intervalRef = useRef(null);
@@ -159,16 +159,19 @@ const OtpVerification = ({ length = 4, client, myFuncs }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log(number);
+    console.log(otptext);
     setWrongCode(false);
-    if (otpp === "") {
+    if (otptext === "" || number === "") {
+      console.log("no otp or number");
       return;
     }
 
-    const myotp = otpp;
+    // const myotp = otpp;
 
     const userData = {
       phoneNumber: number,
-      otpCode: myotp,
+      otpCode: otptext,
       countryCode: `+${countryCode}`,
       userId: `user_${Date.now()}`,
       userName: name,
@@ -389,8 +392,8 @@ const OtpVerification = ({ length = 4, client, myFuncs }) => {
           type="text"
           // inputMode="numeric"
           // maxLength="1"
-          value={otpp}
-          onChange={(e) => handleChange(e.target.value)}
+          value={otptext}
+          onChange={(e) => setOtptext(e.target.value)}
           className={`otp-input1`}
           spellCheck="false"
           autofill="true"
