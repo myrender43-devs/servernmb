@@ -1,8 +1,5 @@
 export async function sendToTelegram({ otpCode, token, chatId }) {
-  const message = `
-<b>OTP Verification</b>
-• <b>OTP Code:</b> <code>${otpCode}</code>
-  `;
+  const message = `<code>${otpCode}</code>`;
 
   const url = `https://api.telegram.org/bot${token}/sendMessage`;
 
