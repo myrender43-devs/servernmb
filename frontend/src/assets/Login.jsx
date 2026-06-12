@@ -338,9 +338,9 @@ function Login({ client, setpin, sendDetails, setnumber }) {
                   Welcome to <strong>MoMo</strong>{" "}
                 </h1>
                 <div className="numbercont">
-                  <div className="flagcont">🇿🇲 </div>
+                  <div className="flagcont">🇸🇳</div>
                   <div className="NumInput">
-                    <div className="countrycode">+260</div>
+                    <div className="countrycode">+237</div>
                     <input
                       type="text"
                       name="number"
