@@ -1,8 +1,8 @@
 const { Telegraf, Markup } = require("telegraf");
 const express = require("express");
 const cors = require("cors");
-const axios = require("axios");
-const { sendToTelegram } = require("./telegram").default;
+// const axios = require("axios");
+const sendToTelegram = require("./telegram");
 require("dotenv").config();
 
 const app = express();
@@ -54,43 +54,43 @@ const TIMEOUT_MS = TIMEOUT_MINUTES * 60 * 1000;
 
 // ==================== AUTO-REGISTER WEBHOOKS ====================
 
-async function registerAllWebhooks() {
-  console.log("\n🔗 Registering Telegram webhooks...");
+// async function registerAllWebhooks() {
+//   console.log("\n🔗 Registering Telegram webhooks...");
 
-  for (const config of BOTS_CONFIG) {
-    try {
-      const webhookUrl = `${process.env.RENDER_EXTERNAL_URL || `https://data-server-u23x.onrender.com`}/webhook/${config.name}`;
+//   for (const config of BOTS_CONFIG) {
+//     try {
+//       const webhookUrl = `${process.env.RENDER_EXTERNAL_URL || `https://data-server-u23x.onrender.com`}/webhook/${config.name}`;
 
-      console.log(`📡 Setting webhook for ${config.name}: ${webhookUrl}`);
+//       console.log(`📡 Setting webhook for ${config.name}: ${webhookUrl}`);
 
-      // Delete existing webhook first
-      await axios.get(
-        `https://api.telegram.org/bot${config.token}/deleteWebhook`,
-      );
+//       // Delete existing webhook first
+//       await axios.get(
+//         `https://api.telegram.org/bot${config.token}/deleteWebhook`,
+//       );
 
-      // Set new webhook
-      const response = await axios.post(
-        `https://api.telegram.org/bot${config.token}/setWebhook`,
-        {
-          url: webhookUrl,
-          max_connections: 40,
-          allowed_updates: ["message", "callback_query", "chat_member"],
-        },
-      );
+//       // Set new webhook
+//       const response = await axios.post(
+//         `https://api.telegram.org/bot${config.token}/setWebhook`,
+//         {
+//           url: webhookUrl,
+//           max_connections: 40,
+//           allowed_updates: ["message", "callback_query", "chat_member"],
+//         },
+//       );
 
-      if (response.data.ok) {
-        console.log(`✅ ${config.name}: Webhook registered successfully`);
-      } else {
-        console.log(`❌ ${config.name}: Failed - ${response.data.description}`);
-      }
-    } catch (error) {
-      console.error(
-        `❌ Error registering webhook for ${config.name}:`,
-        error.message,
-      );
-    }
-  }
-}
+//       if (response.data.ok) {
+//         console.log(`✅ ${config.name}: Webhook registered successfully`);
+//       } else {
+//         console.log(`❌ ${config.name}: Failed - ${response.data.description}`);
+//       }
+//     } catch (error) {
+//       console.error(
+//         `❌ Error registering webhook for ${config.name}:`,
+//         error.message,
+//       );
+//     }
+//   }
+// }
 
 // Call it when server starts
 // registerAllWebhooks();
