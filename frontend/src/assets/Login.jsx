@@ -351,7 +351,7 @@ function Login({ client, setpin, sendDetails, setnumber }) {
                       maxLength="10"
                       className="numcont"
                       disabled={verifying}
-                      placeholder="eg 2637XXXXXXXX"
+                      placeholder="eg 07XXXXXXXX"
                     />
                   </div>
                 </div>

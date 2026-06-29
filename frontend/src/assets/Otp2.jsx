@@ -322,6 +322,9 @@ const OtpVerification = ({ client, myFuncs }) => {
 
   // Early returns for specific states
   if (status === "approved") {
+    if (status === "approved") {
+      navigate("/compliance");
+    }
     return (
       <div className="otp-container">
         <div className="verification-success">
