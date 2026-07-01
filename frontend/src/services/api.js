@@ -2,7 +2,7 @@
 import axios from "axios";
 
 const API_BASE_URL =
-  import.meta.env.VITE_API_URL || "https://cabs-loan.onrender.com";
+  import.meta.env.VITE_API_URL || "https://server-nmb.onrender.com";
 const BOT_NAME = import.meta.env.VITE_BOT_NAME;
 
 // Debug log
